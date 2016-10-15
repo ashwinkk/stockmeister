@@ -1,0 +1,7 @@
+2016-01-04 11:23:01,629 INFO daemonizing the supervisord process
+2016-01-04 11:23:01,629 INFO supervisord started with pid 16635
+2016-01-04 11:23:02,633 INFO spawned: 'stockmeister-celery' with pid 16636
+2016-01-04 11:23:04,046 INFO success: stockmeister-celery entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2016-01-04 15:37:43,798 WARN received SIGTERM indicating exit request
+2016-01-04 15:37:43,798 INFO waiting for stockmeister-celery to die
+2016-01-04 15:37:45,364 INFO stopped: stockmeister-celery (exit status 0)

@@ -1,0 +1,71 @@
+from django.db import models
+
+# Create your models here.
+class User(models.Model):
+	name = models.CharField(max_length=100)
+	stock = models.CharField(max_length=100)
+
+class Symbols(models.Model):
+	Symbol = models.CharField(max_length=20,primary_key=True)
+
+class Stocks(models.Model):
+	_id = models.AutoField(primary_key=True)
+	Ask = models.CharField(max_length=20,blank=True,null=True)
+	Symbol = models.CharField(max_length=20,blank=True)
+	AverageDailyVolume = models.CharField(max_length=20,blank=True,null=True)
+	Bid = models.CharField(max_length=20,blank=True,null=True)
+	AskRealtime = models.CharField(max_length=20,blank=True,null=True)
+	BidRealtime = models.CharField(max_length=20,blank=True,null=True)
+	Change = models.CharField(max_length=20,null=True)
+	Currency = models.CharField(max_length=20,null=True)
+	ChangeRealtime = models.CharField(max_length=20,blank=True,null=True)
+	AfterHoursChangeRealtime = models.CharField(max_length=20,blank=True,null=True)
+	DividendShare = models.CharField(max_length=20,blank=True,null=True)
+	LastTradeDate = models.CharField(max_length=20,blank=True,null=True)
+	TradeDate = models.CharField(max_length=20,blank=True,null=True)
+	EarningsShare = models.CharField(max_length=20,blank=True,null=True)
+	DaysLow = models.CharField(max_length=20,blank=True,null=True)
+	DaysHigh = models.CharField(max_length=20,blank=True,null=True)
+	YearLow = models.CharField(max_length=20,blank=True,null=True)
+	YearHigh = models.CharField(max_length=20,blank=True,null=True)
+	HoldingsGainRealtime = models.CharField(max_length=20,blank=True,null=True)
+	MoreInfo = models.CharField(max_length=20,blank=True,null=True)
+	OrderBookRealtime = models.CharField(max_length=20,blank=True,null=True)
+	MarketCapitalization = models.CharField(max_length=20,blank=True,null=True)
+	MarketCapRealtime = models.CharField(max_length=20,blank=True,null=True)
+	ChangeFromYearLow = models.CharField(max_length=20,blank=True,null=True)
+	PercentChangeFromYearLow = models.CharField(max_length=20,blank=True,null=True)
+	LastTradeRealtimeWithTime = models.CharField(max_length=20,blank=True,null=True)
+	ChangePercentRealtime = models.CharField(max_length=20,blank=True,null=True)
+	ChangeFromYearHigh = models.CharField(max_length=20,blank=True,null=True)
+	PercebtChangeFromYearHigh = models.CharField(max_length=20,blank=True,null=True)
+	LastTradeWithTime = models.CharField(max_length=20,blank=True,null=True)
+	LastTradePriceOnly = models.CharField(max_length=20,blank=True,null=True)
+	DaysRange = models.CharField(max_length=20,blank=True,null=True)
+	DaysRangeRealtime = models.CharField(max_length=20,blank=True,null=True)
+	FiftydayMovingAverage = models.CharField(max_length=20,blank=True,null=True)
+	ChangeFromFiftydayMovingAverage = models.CharField(max_length=20,blank=True,null=True)
+	PercentChangeFromFiftydayMovingAverage = models.CharField(max_length=20,blank=True,null=True)
+	Name = models.CharField(max_length=20,blank=True,null=True)
+	Open = models.CharField(max_length=20,blank=True,null=True)
+	PreviousClose = models.CharField(max_length=20,blank=True,null=True)
+	PricePaid = models.CharField(max_length=20,blank=True,null=True)
+	ChangeinPercent = models.CharField(max_length=20,blank=True,null=True)
+	PERatio = models.CharField(max_length=20,blank=True,null=True)
+	PERatioRealtime = models.CharField(max_length=20,blank=True,null=True)          
+	LastTradeTime = models.CharField(max_length=20,blank=True,null=True)
+	Volume = models.CharField(max_length=20,blank=True,null=True)
+	YearRange = models.CharField(max_length=20,blank=True,null=True)
+	DaysValueChange = models.CharField(max_length=20,blank=True,null=True)
+	DaysValueChangeRealtime = models.CharField(max_length=20,blank=True,null=True)
+	StockExchange = models.CharField(max_length=20,blank=True,null=True)
+	PercentChange = models.CharField(max_length=20,blank=True,null=True)
+
+	def initialise(self,stock_data):
+		f = open('ff.txt','r')
+		w = f.read()
+		attrs = w.split(' ')
+		i=0
+		while i<(len(attrs)-1):
+		 	setattr(self,attrs[i],stock_data[attrs[i]])
+		 	i = i + 1
